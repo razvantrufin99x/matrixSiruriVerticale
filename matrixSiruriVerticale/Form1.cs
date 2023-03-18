@@ -31,6 +31,45 @@ namespace matrixSiruriVerticale
             {
                 this.list.Add(c);
             }
+            public void rotateToLeft()
+            {
+
+                char aux;
+                aux = list[0];
+
+
+
+                for (int i = 0; i < list.Count - 1; i++)
+                {
+                    list[i] = list[i + 1];
+
+                }
+                list[list.Count - 1] = aux;
+
+
+            }
+
+           
+
+            
+            public void rotateToRight()
+            {
+
+                
+                char aux;
+
+                aux = list[list.Count - 1];
+
+                for (int i = list.Count - 1; i > 0; i--)
+                {
+                    list[i] = list[i - 1];
+
+                }
+                list[0] = aux;
+
+
+            }
+
         }
 
         public class listadeliste
@@ -72,6 +111,16 @@ namespace matrixSiruriVerticale
                 loadlist(80);
                 draw(ref pg);
             }
+            public void animateList(int x) 
+            {
+                matricea[6].rotateToLeft();
+                matricea[1].rotateToLeft();
+                matricea[2].rotateToLeft();
+                matricea[18].rotateToLeft();
+                matricea[21].rotateToLeft();
+                matricea[79].rotateToLeft();
+
+            }
 
         }
 
@@ -89,6 +138,13 @@ namespace matrixSiruriVerticale
         private void Form1_Shown(object sender, EventArgs e)
         {
             p.runlistadeliste(ref this.g);
+
+            for(int i = 0; i < 10; i++)
+            {
+                p.animateList(i);
+               // g.Clear(this.BackColor);
+                p.draw(ref g);
+            }
            
         }
     }
